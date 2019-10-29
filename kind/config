@@ -1,0 +1,22 @@
+kind: Cluster
+apiVersion: kind.sigs.k8s.io/v1alpha3
+nodes:
+- role: control-plane
+- role: worker
+  extraMounts:
+  - containerPath: /tmp/hostpath_pv
+    hostPath: /tmp/hostpath_pv
+    readOnly: False
+- role: worker
+  extraMounts:
+  - containerPath: /tmp/hostpath_pv
+    hostPath: /tmp/hostpath_pv
+    readOnly: False
+- role: worker
+  extraMounts:
+  - containerPath: /tmp/hostpath_pv
+    hostPath: /tmp/hostpath_pv
+    readOnly: False
+networking:
+  podSubnet: "10.244.0.0/16"
+  disableDefaultCNI: True
